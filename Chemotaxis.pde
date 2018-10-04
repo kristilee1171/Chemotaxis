@@ -2,39 +2,51 @@ Bacteria [] one;
 void setup()   
 {     
   size(500,500);   
-  background(0);
   frameRate(50);
-  one = new Bacteria[20]; 
+  one = new Bacteria[200]; 
   for(int i = 0; i < one.length; i++)
   {
     one[i] = new Bacteria();
   }
 }   
 void draw()   
-{  
+{ 
+  background(0);
   for(int i = 0; i < one.length; i++)
   {
     one[i].show(); 
     one[i].move();
   }
 }  
+void mousePressed()
+{
+  background(0);
+  redraw();
+}
 class Bacteria    
 {    
   int x, y, myColor;
   Bacteria()
   {
-    x = 250;
-    y = 250;
+    x = (int)(Math.random()*500);
+    y = (int)(Math.random()*500);
     myColor = color((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
   }
   void move()
   {
-    x = x + (int)(Math.random()*3)-1;
-    y = y + (int)(Math.random()*3)-1;
+    if(mouseX > x)
+      x = x + (int)(Math.random()*2);
+    else
+      x = x + (int)(Math.random()*-2);
+    if(mouseY > y)
+      y = y + (int)(Math.random()*2);
+    else 
+      y = y + (int)(Math.random()*-2);
   }
   void show()
   {
     fill(myColor);
     ellipse(x,y,10,10);
   } 
-}   
+} 
+
