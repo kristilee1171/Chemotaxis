@@ -18,11 +18,6 @@ void draw()
     one[i].move();
   }
 }  
-void mousePressed()
-{
-  background(0);
-  redraw();
-}
 class Bacteria    
 {    
   int x, y, myColor;
@@ -49,4 +44,5 @@ class Bacteria
     ellipse(x,y,10,10);
   } 
 } 
+
 
